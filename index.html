@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <!-- Pull the engine from the Quintus CDN or load it locally -->
+    <!-- (use quintus-all.min.js for production) -->
+    <script src='http://cdn.html5quintus.com/v0.2.0/quintus-all.js'></script>
+  </head>
+   <body>
+     <script>
+     
+      
+window.addEventListener("load",function() {
+
+//var Q = Quintus().include("Sprites,UI,Input,Touch,Anim,Scenes,2D").setup("platformer").controls().touch();
+		
+	var Q = Quintus().include("Sprites, Scenes, Input");
+	
+	// add canvas element to page
+	Q.setup({ maximize: true });
+	
+	
+	
+	
+});
+      
+      
+      
+   </script>
+   </body>
+</html>
