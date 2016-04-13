@@ -2,27 +2,43 @@
   <head>
     <!-- Pull the engine from the Quintus CDN or load it locally -->
     <!-- (use quintus-all.min.js for production) -->
-    <script src='http://cdn.html5quintus.com/v0.2.0/quintus-all.js'></script>
+<script src='http://cdn.html5quintus.com/v0.2.0/quintus-all.js'></script>
   </head>
    <body>
-     <script>
-     
-      
-window.addEventListener("load",function() {
+  <script type="text/javascript">
 
-//var Q = Quintus().include("Sprites,UI,Input,Touch,Anim,Scenes,2D").setup("platformer").controls().touch();
-		
-	var Q = Quintus().include("Sprites, Scenes, Input");
-	
-	// add canvas element to page
-	Q.setup({ maximize: true });
-	
-	
-	
-	
+
+// from this tutorial http://www.remcodraijer.nl/quintus/tutorial.html
+
+window.addEventListener('load',function(e) {
+	var Q = Quintus().include("Sprites, UI, Input, Touch, Anim, Scenes, 2D");
+	   //  Q.setup("platformer");
+	   	   
+	   Q.setup({
+  width:   800, // Set the default width to 800 pixels
+  height:  600, // Set the default height to 600 pixels
+  upsampleWidth:  420,  // Double the pixel density of the 
+  upsampleHeight: 320,  // game if the w or h is 420x320
+                        // or smaller (useful for retina phones)
+  downsampleWidth: 1024, // Halve the pixel density if resolution
+  downsampleHeight: 768  // is larger than or equal to 1024x768
 });
-      
-      
+	   
+	    Q.controls();
+		Q.touch();
+		
+
+Q.scene('scene1', function(stage){
+stage.insert( new Q.Repeater( { asset: "background.png" , speedX: 0.5, speedY: 0.5, scale: 0.59 } ) );	
+});
+
+Q.load( "background.png" , function(){ Q.stageScene("scene1"); } );
+		
+		
+		
+});
+
+
       
    </script>
    </body>
